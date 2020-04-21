@@ -1,2 +1,2 @@
 # bananabread
-Bread with no Bananas but with Boards.
+Bread without Bananas but with Boards.

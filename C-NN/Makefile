@@ -4,11 +4,14 @@ OBJDIR=target
 EXT_DIR=external
 CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -std=c++17
 INCLUDES=.
+TESTDIR=tests
 
 .PHONY:
 clean:
 	rm -rf target
+	rm -rf tests/*.out
 	rm -rf *.out
+	rm -rf *.o
 	rm -rf *.gch
 
 setup:
@@ -25,6 +28,9 @@ HDRS = $(patsubst %,$(INCLUDES)/%,$(_HDRS))
 _OBJ = cnn.o cnn_math.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
+_TESTS = trial.out
+TESTS = $(patsubst %,$(TESTDIR)/%,$(_TESTS))
+
 $(OBJDIR)/%.o: %.cpp $(HDRS)
 	$(CXX) -c $< $(CXXFLAGS) -o $@
 
@@ -32,12 +38,10 @@ $(OBJDIR)/%.o: %.cpp $(HDRS)
 .PHONY: compile_src
 compile_src: $(OBJ) 
 
-main: main.cpp $(OBJ) $(HDRS)
-	$(CXX) $^ $(CXXFLAGS)
+$(TESTDIR)/%.out: $(TESTDIR)/%.cpp $(OBJ)
+	$(CC) $^ $(CXXFLAGS) -o $(TESTDIR)/$@
 
-.PHONY:
-exec:
-	$(OBJDIR)/main
+.PHONY: compile_tests
+compile_tests: $(TESTS)
 
-
-all: clean setup compile_src main
+all: clean setup compile_src compile_tests

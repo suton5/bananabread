@@ -2,7 +2,7 @@ PROJECT=cnn
 CXX=clang++
 OBJDIR=target
 EXT_DIR=external
-CXXFLAGS=-I$(EXT_DIR)/include/eigen3
+CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include/libigl
 INCLUDES=.
 
 .PHONY:
@@ -12,13 +12,17 @@ clean:
 	rm -rf *.gch
 
 setup:
+	chmod a+x get_eigen3.sh
+	chmod a+x get_igl.sh
 	$(shell mkdir -p target/bin)
 	./get_eigen3.sh
 
-_HDRS = cnn.hpp
+#./get_igl.sh
+
+_HDRS = cnn.hpp cnn_math.hpp
 HDRS = $(patsubst %,$(INCLUDES)/%,$(_HDRS))
 
-_OBJ = cnn.o
+_OBJ = cnn.o cnn_math.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
 $(OBJDIR)/%.o: %.cpp $(HDRS)

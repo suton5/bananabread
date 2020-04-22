@@ -8,7 +8,7 @@ if [ ! -d external/include/eigen3 ]; then
 	cmake ../eigen -DCMAKE_INSTALL_PREFIX=$PWD/../external
 	make install
 
-	rm -r eigen3-build eigen
+	rm -rf eigen3-build eigen
 else
 	echo "Eigen 3 already installed"
 fi

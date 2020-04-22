@@ -22,7 +22,7 @@ _OBJ = cnn.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
 $(OBJDIR)/%.o: %.cpp $(HDRS)
-	$(CXX) -c $< $(CFLAGS) -o $@
+	$(CXX) -c $< $(CXXFLAGS) -o $@
 
 # Compile but don't link'
 .PHONY: compile_src

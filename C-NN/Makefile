@@ -2,7 +2,7 @@ PROJECT=cnn
 CXX=clang++
 OBJDIR=target
 EXT_DIR=external
-CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include/libigl
+CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -std=c++17
 INCLUDES=.
 
 .PHONY:

@@ -1,4 +1,0 @@
-/Users/sujay/bananabread/C-NN/CMakeFiles/rebuild_cache.dir
-/Users/sujay/bananabread/C-NN/CMakeFiles/edit_cache.dir
-/Users/sujay/bananabread/C-NN/CMakeFiles/eigen_test.dir
-/Users/sujay/bananabread/C-NN/CMakeFiles/Eigen3.dir

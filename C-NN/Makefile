@@ -2,8 +2,8 @@ PROJECT=cnn
 CXX=clang++
 OBJDIR=target
 EXT_DIR=external
+INCLUDES=include
 CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -std=c++17
-INCLUDES=.
 TESTDIR=tests
 
 .PHONY:
@@ -25,10 +25,12 @@ setup:
 _HDRS = cnn.hpp cnn_math.hpp
 HDRS = $(patsubst %,$(INCLUDES)/%,$(_HDRS))
 
+CXXFLAGS += -I$(INCLUDES)
+
 _OBJ = cnn.o cnn_math.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
-_TESTS = trial.out
+_TESTS = main.out
 TESTS = $(patsubst %,$(TESTDIR)/%,$(_TESTS))
 
 $(OBJDIR)/%.o: %.cpp $(HDRS)

@@ -1,0 +1,43 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/CMakeFiles/Eigen3"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/CMakeFiles/Eigen3.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/CMakeFiles/Eigen3-complete.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/deps/eigen3/src/Eigen3-stamp/Eigen3-install.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/deps/eigen3/src/Eigen3-stamp/Eigen3-mkdir.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/deps/eigen3/src/Eigen3-stamp/Eigen3-download.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/deps/eigen3/src/Eigen3-stamp/Eigen3-patch.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/deps/eigen3/src/Eigen3-stamp/Eigen3-configure.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/deps/eigen3/src/Eigen3-stamp/Eigen3-build.rule"
+		},
+		{
+			"file" : "/Users/sujay/bananabread/C-NN/deps/eigen3/src/Eigen3-stamp/Eigen3-skip-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Eigen3"
+		],
+		"name" : "Eigen3"
+	}
+}

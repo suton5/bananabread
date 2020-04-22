@@ -1,1 +1,1 @@
-CNNs without the convolution but with C
+CNNs without the convolution but with C.

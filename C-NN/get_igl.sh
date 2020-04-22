@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if [ ! -d external/include/libigl ]; then
+if [ ! -d external/include/igl ]; then
 	git clone https://github.com/libigl/libigl.git
 
 	mkdir libigl-build

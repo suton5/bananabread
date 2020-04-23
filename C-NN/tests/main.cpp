@@ -7,6 +7,8 @@
 #include <variant>
 #include <string>
 
+#include "optim.hpp" // For Adam optimizer
+
 #include "cnn_math.hpp"
 #include "cnn.hpp"
 

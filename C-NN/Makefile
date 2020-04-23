@@ -3,7 +3,7 @@ CXX=clang++
 OBJDIR=target
 EXT_DIR=external
 INCLUDES=include
-CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -std=c++17
+CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -I$(INCLUDES) -I$(EXT_DIR)/include/optim -std=c++17
 TESTDIR=tests
 
 .PHONY:
@@ -19,13 +19,12 @@ setup:
 	chmod a+x get_igl.sh
 	$(shell mkdir -p target/bin)
 	./get_eigen3.sh
+	./get_optim.sh
 
 #./get_igl.sh
 
 _HDRS = cnn.hpp cnn_math.hpp
 HDRS = $(patsubst %,$(INCLUDES)/%,$(_HDRS))
-
-CXXFLAGS += -I$(INCLUDES)
 
 _OBJ = cnn.o cnn_math.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
@@ -41,7 +40,7 @@ $(OBJDIR)/%.o: %.cpp $(HDRS)
 compile_src: $(OBJ) 
 
 $(TESTDIR)/%.out: $(TESTDIR)/%.cpp $(OBJ)
-	$(CC) $^ $(CXXFLAGS) -o $(TESTDIR)/$@
+	$(CXX) $^ $(CXXFLAGS) -o $@
 
 .PHONY: compile_tests
 compile_tests: $(TESTS)

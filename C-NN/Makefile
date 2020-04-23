@@ -3,7 +3,7 @@ CXX=clang++
 OBJDIR=target
 EXT_DIR=external
 INCLUDES=include
-CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -I$(INCLUDES) -I$(EXT_DIR)/include/optim -std=c++17
+CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -I$(INCLUDES) -I$(EXT_DIR)/include/optim -std=c++17 -pthread
 TESTDIR=tests
 
 .PHONY:
@@ -20,6 +20,7 @@ setup:
 	$(shell mkdir -p target/bin)
 	./get_eigen3.sh
 	./get_optim.sh
+	./get_csv_parser.sh
 
 #./get_igl.sh
 
@@ -29,7 +30,7 @@ HDRS = $(patsubst %,$(INCLUDES)/%,$(_HDRS))
 _OBJ = cnn.o cnn_math.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
-_TESTS = main.out
+_TESTS = main.out csv.out
 TESTS = $(patsubst %,$(TESTDIR)/%,$(_TESTS))
 
 $(OBJDIR)/%.o: %.cpp $(HDRS)

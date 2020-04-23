@@ -20,6 +20,7 @@ int main() {
    };
    auto nn = FeedForward(arch);
    Eigen::VectorXd x_train = Eigen::VectorXd::Random(5);
-   std::cout << nn.forward_pass(x_train) << std::endl;
+   nn.forward_pass(x_train);
+   // std::cout << nn.forward_pass(x_train) << std::endl;
    return 0; 
 }

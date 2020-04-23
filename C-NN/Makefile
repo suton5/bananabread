@@ -41,7 +41,7 @@ $(OBJDIR)/%.o: %.cpp $(HDRS)
 compile_src: $(OBJ) 
 
 $(TESTDIR)/%.out: $(TESTDIR)/%.cpp $(OBJ)
-	$(CC) $^ $(CXXFLAGS) -o $(TESTDIR)/$@
+	$(CXX) $^ $(CXXFLAGS) -o $@
 
 .PHONY: compile_tests
 compile_tests: $(TESTS)

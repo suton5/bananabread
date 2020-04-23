@@ -58,10 +58,32 @@ Eigen::VectorXd FeedForward::forward_pass(Eigen::VectorXd x) {
     assert(biases.size() == D_b);
     int index_W = width * D_in - 1;
     int index_b = width - 1;
-    auto W = weights(Eigen::seq(0, index_W));
-    auto b = biases(Eigen::seq(0, index_b));
-    //input layer
-    Eigen::MatrixXd output = W * x.transpose();
+    Eigen::VectorXd W = weights(Eigen::seq(0, index_W));
+    Eigen::VectorXd b = biases(Eigen::seq(0, index_b));
 
-    return output;
+    // //input layer
+    // Eigen::MatrixXd input = W * x.transpose();
+    // input.colwise() += b;
+    // Eigen::MatrixXd output = h(input);
+
+    // //hidden layers
+    // for (int l=0; l<L-1; ++l) {
+    //     W = weights(Eigen::seq(index_W + 1, index_W + width*width));
+    //     b = biases(Eigen::seq(index_b + 1, index_b + width));
+    //     Eigen::MatrixXd input = W * output.transpose();
+    //     input.colwise() += b;
+    //     output = h(input);
+    //     index_W += width*width;
+    //     index_b += width;
+    // }
+
+    // //output layer
+    // W = weights(Eigen::seq(index_W + 1, index_W + width*width));
+    // b = biases(Eigen::seq(index_b + 1, index_b + width));
+    // Eigen::MatrixXd input = output.transpose() * W;
+    // // output.colwise() += b;
+    // // output = h(output);
+    // std::cout << input << std::endl;
+    //CHANGE TO output LATER
+    return W;
 }

@@ -74,6 +74,8 @@
         "queue": "cpp",
         "set": "cpp",
         "stack": "cpp",
-        "thread": "cpp"
+        "thread": "cpp",
+        "unordered_set": "cpp",
+        "valarray": "cpp"
     }
 }

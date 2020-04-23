@@ -20,8 +20,10 @@ int main() {
       {"output_dim", 1},
       {"activation_fn", ActivationFns::ReLU}
    };
+
    auto nn = FeedForward(arch);
    Eigen::VectorXd x_train = Eigen::VectorXd::Random(5);
+   nn.forward_pass(x_train);
    std::cout << nn.forward_pass(x_train) << std::endl;
    return 0; 
 }

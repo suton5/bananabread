@@ -5,8 +5,8 @@
 #include <Eigen/Dense>
 
 namespace cnn_math {
-    Eigen::ArrayXd relu(Eigen::ArrayXd x);
-    Eigen::ArrayXd tanh(Eigen::ArrayXd x);
+    Eigen::MatrixXd relu(Eigen::MatrixXd x);
+    Eigen::MatrixXd tanh(Eigen::MatrixXd x);
 }
 
 #endif

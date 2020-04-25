@@ -3,7 +3,7 @@ CXX=clang++
 OBJDIR=target
 EXT_DIR=external
 INCLUDES=include
-CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include -I$(EXT_DIR)/include/igl -I$(INCLUDES) -I$(EXT_DIR)/include/optim -std=c++17 -pthread
+CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include/autodiff -I$(EXT_DIR)/include -I$(INCLUDES) -std=c++17 -pthread
 TESTDIR=tests
 
 .PHONY:
@@ -19,9 +19,10 @@ setup:
 	chmod a+x get_igl.sh
 	$(shell mkdir -p target/bin)
 	./get_eigen3.sh
-	./get_optim.sh
+	./get_autodiff.sh
 	./get_csv_parser.sh
 
+#./get_optim.sh
 #./get_igl.sh
 
 _HDRS = cnn.hpp cnn_math.hpp

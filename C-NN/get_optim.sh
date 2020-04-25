@@ -11,7 +11,7 @@ if [ ! -d external/include/optim ]; then
 	wget http://sourceforge.net/projects/arma/files/armadillo-9.860.2.tar.xz
 	tar xf armadillo-9.860.2.tar.xz
 	cd armadillo-9.860.2
-	cmake . -DCMAKE_INSTALL_PREFIX:PATH=$PWD/../external
+	cmake . -DCMAKE_INSTALL_PREFIX:PATH=$PWD/../../external
 	make all
 	make install
 

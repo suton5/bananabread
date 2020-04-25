@@ -23,7 +23,7 @@ class FeedForward
 {
    public:
 	std::unordered_map<std::string, ActivationFns> architecture;
-	std::function<Eigen::VectorXd( Eigen::VectorXd )> h;
+	std::function<Eigen::MatrixXd( Eigen::MatrixXd )> h;
 	int L;
 	int width;
 	int D_in;
@@ -37,7 +37,7 @@ class FeedForward
 	FeedForward( std::unordered_map<std::string, arch_value_type> architecture,
 	             Eigen::VectorXd weights_ = Eigen::VectorXd{},
 	             Eigen::VectorXd biases_  = Eigen::VectorXd{} );
-	Eigen::VectorXd forward_pass( Eigen::VectorXd x );
+	Eigen::MatrixXd forward_pass( Eigen::VectorXd x );
 };
 
 #endif // CNN_H_IN

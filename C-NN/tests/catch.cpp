@@ -1,23 +1,29 @@
-#include <sstream>
 #include <Eigen/Dense>
-#include <string>
-#include <unordered_map>
+#include <vector>
 
 #define CATCH_CONFIG_MAIN
 #include "catch.hpp"
 
 #include "cnn.hpp"
 
-TEST_CASE( "Forward pass returns correct output dimension", "[C-NN]" )
+TEST_CASE( "catch2 infra test", "[INFRA]" )
 {
-	std::unordered_map<std::string, arch_value_type> arch
-	    = {{"num_hidden", 2},
-	       {"width", 20},
-	       {"input_dim", 1},
-	       {"output_dim", 3},
-	       {"activation_fn", cnn_math::relu}};
+	std::vector<int> v( 5 );
+	Eigen::VectorXd x( 5 );
 
-	auto nn                 = FeedForward( arch );
-	Eigen::VectorXd x_train = Eigen::VectorXd::Random( 5 );
-	REQUIRE(x_train.size() == std::get<int>(arch["output_dim"]));
+	REQUIRE( v.size() == 5 );
+	REQUIRE( v.capacity() >= 5 );
+
+	SECTION( "resizing bigger changes size and capacity" )
+	{
+		v.resize( 10 );
+
+		REQUIRE( v.size() == 10 );
+		REQUIRE( v.capacity() >= 10 );
+	}
+
+	SECTION( "Eigen::VectorXd is of correct size" )
+	{
+		REQUIRE(x.size() == 5);
+	}
 }

@@ -32,8 +32,13 @@ HDRS = $(patsubst %,$(INCLUDES)/%,$(_HDRS))
 _OBJ = cnn.o cnn_math.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
-_TESTS = main.out csv.out catch.out
+# Tests for infra
+_TESTS = csv.out catch.out
 TESTS = $(patsubst %,$(TESTDIR)/%,$(_TESTS))
+
+# Tests for C-NN
+_DRIVERS = main.out
+DRIVERS = $(patsubst %,$(TESTDIR)/%,$(_DRIVERS))
 
 $(OBJDIR)/%.o: %.cpp $(HDRS)
 	$(CXX) -c $< $(CXXFLAGS) -o $@
@@ -48,4 +53,7 @@ $(TESTDIR)/%.out: $(TESTDIR)/%.cpp $(OBJ)
 .PHONY: compile_tests
 compile_tests: $(TESTS)
 
-all: clean setup compile_src compile_tests
+.PHONY: compile_drivers
+compile_drivers: $(DRIVERS)
+
+all: clean setup compile_src compile_drivers

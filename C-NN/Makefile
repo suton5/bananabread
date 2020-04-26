@@ -3,7 +3,7 @@ CXX=clang++
 OBJDIR=target
 EXT_DIR=external
 INCLUDES=include
-CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include/autodiff -I$(EXT_DIR)/include -I$(INCLUDES) -std=c++17 -pthread
+CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include/autodiff -I$(EXT_DIR)/include -I$(INCLUDES) -std=c++17 -pthread -g
 TESTDIR=tests
 
 .PHONY:

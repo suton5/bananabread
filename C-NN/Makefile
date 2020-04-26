@@ -21,6 +21,7 @@ setup:
 	./get_eigen3.sh
 	./get_autodiff.sh
 	./get_csv_parser.sh
+	./get_catch2.sh
 
 #./get_optim.sh
 #./get_igl.sh
@@ -31,7 +32,7 @@ HDRS = $(patsubst %,$(INCLUDES)/%,$(_HDRS))
 _OBJ = cnn.o cnn_math.o
 OBJ = $(patsubst %,$(OBJDIR)/%,$(_OBJ))
 
-_TESTS = main.out csv.out
+_TESTS = main.out csv.out catch.out
 TESTS = $(patsubst %,$(TESTDIR)/%,$(_TESTS))
 
 $(OBJDIR)/%.o: %.cpp $(HDRS)

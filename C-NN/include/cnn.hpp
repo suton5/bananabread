@@ -11,19 +11,14 @@
 
 #include "cnn_math.hpp"
 
-enum class ActivationFns
-{
-	ReLU,
-	Tanh
-};
-
-using arch_value_type = std::variant<int, ActivationFns>;
+using ActivationFnType = std::function<Eigen::MatrixXd( Eigen::MatrixXd )>;
+using arch_value_type = std::variant<int, ActivationFnType>;
 
 class FeedForward
 {
    public:
-	std::unordered_map<std::string, ActivationFns> architecture;
-	std::function<Eigen::MatrixXd( Eigen::MatrixXd )> h;
+	std::unordered_map<std::string, arch_value_type> architecture;
+	ActivationFnType h;
 	int L;
 	int width;
 	int D_in;

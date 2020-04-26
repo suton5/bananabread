@@ -15,7 +15,7 @@ TEST_CASE( "Forward pass returns correct output dimension", "[C-NN]" )
 	       {"width", 20},
 	       {"input_dim", 1},
 	       {"output_dim", 3},
-	       {"activation_fn", ActivationFns::ReLU}};
+	       {"activation_fn", cnn_math::relu}};
 
 	auto nn                 = FeedForward( arch );
 	Eigen::VectorXd x_train = Eigen::VectorXd::Random( 5 );

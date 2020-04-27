@@ -56,4 +56,13 @@ compile_tests: $(TESTS)
 .PHONY: compile_drivers
 compile_drivers: $(DRIVERS)
 
+TORCH_TEST_DIR=$(PWD)/torch_tests
+TORCH_DIR=$(PWD)/libtorch
+.PHONY: torch
+torch:
+	./get_libtorch.sh
+	cd $(TORCH_TEST_DIR) && \
+		cmake -DCMAKE_PREFIX_PATH=$(TORCH_DIR) $(TORCH_TEST_DIR) && \
+		cmake --build .
+
 all: clean setup compile_src compile_drivers

@@ -18,7 +18,7 @@ int main()
 	    = {{"num_hidden", 2},
 	       {"width", 20},
 	       {"input_dim", 1},
-	       {"output_dim", 3},
+	       {"output_dim", 1},
 	       {"activation_fn", cnn_math::relu}};
 
    auto nn = FeedForward(arch);

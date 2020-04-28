@@ -1,9 +1,9 @@
 PROJECT=cnn
-CXX=clang++
+CXX=g++
 OBJDIR=target
 EXT_DIR=external
 INCLUDES=include
-CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include/autodiff -I$(EXT_DIR)/include -I$(INCLUDES) -std=c++17 -pthread -g
+CXXFLAGS=-I$(EXT_DIR)/include/eigen3 -I$(EXT_DIR)/include/autodiff -I$(EXT_DIR)/include -I$(INCLUDES) -std=c++17 -g -pthread
 TESTDIR=tests
 
 .PHONY:
@@ -41,14 +41,14 @@ _DRIVERS = main.out
 DRIVERS = $(patsubst %,$(TESTDIR)/%,$(_DRIVERS))
 
 $(OBJDIR)/%.o: %.cpp $(HDRS)
-	$(CXX) -c $< $(CXXFLAGS) -o $@
+	$(CXX) -c $< $(CXXFLAGS) $(LDFLAGS) -o $@
 
 # Compile but don't link'
 .PHONY: compile_src
 compile_src: $(OBJ) 
 
 $(TESTDIR)/%.out: $(TESTDIR)/%.cpp $(OBJ)
-	$(CXX) $^ $(CXXFLAGS) -o $@
+	$(CXX) $^ $(CXXFLAGS) $(LDFLAGS) -o $@
 
 .PHONY: compile_tests
 compile_tests: $(TESTS)

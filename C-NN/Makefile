@@ -18,6 +18,9 @@ setup:
 	chmod a+x get_eigen3.sh
 	chmod a+x get_igl.sh
 	$(shell mkdir -p target/bin)
+	$(shell mkdir -p external/lib)
+	$(shell mkdir -p external/include)
+	$(shell mkdir -p external/bin)
 	./get_eigen3.sh
 	./get_autodiff.sh
 	./get_csv_parser.sh
